@@ -558,11 +558,11 @@
   "ASSERT()")
 
 (defface my-plus-numbers-face
-  '((t :foreground "#FFA0A0"))  ;;lightgreen
+  '((t :foreground "#FFA0A0"))  ;;lightred
   "plus numbers")
 
 (defface my-minus-numbers-face
-  '((t :foreground "#FFA0A0"))  ;;lightred
+  '((t :foreground "#80FF80"))  ;;lightgreen
   "minus numbers")
 
 (defface my-comment-face
@@ -584,7 +584,12 @@
 			 ;; ==|!=|<=|>=|(?<!-)<|(?<!-)>|\&\&|\|\|
 			 (hi-lock-set-pattern "==\\|!=\\|<=\\|>=\\|<\\|\\(?<!-\\)>\\|\\&\\&\\|\\|\\|" 'my-logic-sign-face)
 
-			 (hi-lock-set-pattern "\\b[0-9]+\\b" 'my-plus-numbers-face)    ;; Numbers
+			 ;(\b(?<![-.])\d+(\.\d+)?[fF]?(?!\.)\b)|(\b(?<![-.])\d+[lL]?(?!\.)\b)
+			 (hi-lock-set-pattern "\\b\\(?<![-.]\\)[0-9]+\\(\\.[0-9]+\\)?[fF]?\\(?!\\.\\)\\b" 'my-plus-numbers-face)    ;; Plus numbers
+			 (hi-lock-set-pattern "\\b\\(?<![-.]\\)[0-9]+[lL]?\\(?!\\.\\)\\b" 'my-plus-numbers-face)    ;; Plus numbers
+		     ;(-{1}\d+(\.\d+)?[fF]?(?!\.)\b)|(-{1}\d+[lL]?(?!\.)\b)
+			 (hi-lock-set-pattern "-\\{1\\}[0-9]+\\(\\.[0-9]+\\)?[fF]?\\(?!\\.\\)\\b" 'my-minus-numbers-face)    ;; Minus numbers
+			 (hi-lock-set-pattern "-\\{1\\}[0-9]+[lL]?\\(?!\\.\\)\\b" 'my-minus-numbers-face)    ;; Minus numbers
 			 (hi-lock-set-pattern "\/\/.*+" 'my-comment-face)    ;; Comments
 
 			 ))
