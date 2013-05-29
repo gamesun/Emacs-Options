@@ -524,7 +524,7 @@
 (setq cscope-do-not-update-database t)
 
 (require 'etags)
-(setq tags-file-name "D:/sunyt/91_MyWorkSpace/gitZeusBkOWN/TAGS") ;;when set tags-file-name, reset "tags-table-list"
+(setq tags-file-name "D:/TAGS") ;;when set tags-file-name, reset "tags-table-list"
 (defun my-find-tag ()
   "Find the current word's tag in tag list.
  If a region is active (a phrase), lookup that phrase."
